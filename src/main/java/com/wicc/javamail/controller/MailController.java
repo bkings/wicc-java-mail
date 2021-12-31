@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.mail.MessagingException;
+
 /**
  * @author bkings
  * @version 1.0.0
@@ -22,6 +24,12 @@ public class MailController {
     @PostMapping
     public String sendSimpleMail(@ModelAttribute Mail mail) {
         mailService.sendSimpleMessage(mail);
+        return "success";
+    }
+
+    @PostMapping("/attachment")
+    public String sendWithAttachment(@ModelAttribute Mail mail) throws MessagingException {
+        mailService.sendMailWithAttachments(mail);
         return "success";
     }
 }

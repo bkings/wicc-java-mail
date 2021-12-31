@@ -2,6 +2,8 @@ package com.wicc.javamail.service;
 
 import com.wicc.javamail.models.Mail;
 
+import javax.mail.MessagingException;
+
 /**
  * @author bkings
  * @version 1.0.0
@@ -11,4 +13,6 @@ import com.wicc.javamail.models.Mail;
 public interface MailService {
 
     String sendSimpleMessage(Mail mail);
+
+    void sendMailWithAttachments(Mail mail) throws MessagingException;
 }

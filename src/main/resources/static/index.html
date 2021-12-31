@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Send Email</title>
+    <title>Send E-mail</title>
 </head>
 <body style="display: flex;justify-content: center;margin-top: 250px;">
 <div style="border: 1px solid black;width: 350px;padding: 30px;display: flex;justify-content: center;">
     <form method="post" action="/mail">
-        Send To : <input style="margin: 15px;" type="email" placeholder="username@email.com" name="to"><br/>
-        Subject : <input style="margin: 15px;" type="text" placeholder="Enter subject" name="subject"><br/>
-        Message : <textarea cols="28" name="text"></textarea>
+        <label for="to"> Send To : </label><input style="margin: 15px;" id="to" type="email"
+                                                  placeholder="username@email.com" name="to"><br/>
+        <label for="subject"> Subject : </label><input style="margin: 15px;" type="text" id="subject"
+                                                       placeholder="Enter subject" name="subject"><br/>
+
+        <label for="file">Select file: </label><input style="margin: 15px;" type="file" id="file" name="file" multiple><br/>
+
+        <label for="message"> Message : </label><textarea cols="28" id="message" name="text"></textarea>
         <button type="submit" style="margin-top:15px;padding: 5px;">Send</button>
     </form>
 </div>
