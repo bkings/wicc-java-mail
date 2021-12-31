@@ -4,6 +4,7 @@ import com.wicc.javamail.models.Mail;
 import com.wicc.javamail.service.MailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -22,6 +23,7 @@ import javax.mail.internet.MimeMessage;
 public class MailServiceImpl implements MailService {
 
     private final JavaMailSender javaMailSender;
+    private final SimpleMailMessage simpleTemplate;
     @Value("${email.username}")
     private String email;
 
@@ -38,19 +40,30 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendMailWithAttachments(Mail mail) throws MessagingException {
+        // Create default MimeMessage object
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
         mimeMessageHelper.setFrom(email);
         mimeMessageHelper.setTo(mail.getTo());
         mimeMessageHelper.setSubject(mail.getSubject());
-        mimeMessageHelper.setText(mail.getText());
+        mimeMessageHelper.setText(mail.getText(), true);
         mail.getAttachments().forEach(f -> {
             try {
+//                FileSystemResource fileSystemResource = new FileSystemResource("/home/bkings/Pictures/dod.jpg");
+//                mimeMessageHelper.addInline("image", fileSystemResource);
+                // Adding an attachment
                 mimeMessageHelper.addAttachment("File", f);
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
         });
         javaMailSender.send(mimeMessage);
+    }
+
+    @Override
+    public void sendFromATemplate(Mail mail) throws MessagingException {
+        String text = simpleTemplate.getText();
+        mail.setText(text);
+        sendMailWithAttachments(mail);
     }
 }

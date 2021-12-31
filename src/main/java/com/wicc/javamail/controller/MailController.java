@@ -32,4 +32,10 @@ public class MailController {
         mailService.sendMailWithAttachments(mail);
         return "success";
     }
+
+    @PostMapping("/template-based")
+    public String sendFromATemplate(@ModelAttribute Mail mail) throws MessagingException {
+        mailService.sendFromATemplate(mail);
+        return "success";
+    }
 }

@@ -15,4 +15,6 @@ public interface MailService {
     String sendSimpleMessage(Mail mail);
 
     void sendMailWithAttachments(Mail mail) throws MessagingException;
+
+    void sendFromATemplate(Mail mail) throws MessagingException;
 }
