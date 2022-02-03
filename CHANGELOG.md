@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/bkings/wicc-java-mail/compare/v1.1.0...v1.1.1) (2022-02-03)
+
+
+### Bug Fixes
+
+* update pom ([1d3ce57](https://github.com/bkings/wicc-java-mail/commit/1d3ce57181835b7ed60deee12116423110a34b31))
+
 ## [1.1.0](https://github.com/bkings/wicc-java-mail/compare/v1.0.1...v1.1.0) (2022-02-03)
 
 
