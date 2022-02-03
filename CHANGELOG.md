@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/bkings/wicc-java-mail/compare/v1.0.1...v1.1.0) (2022-02-03)
+
+
+### Features
+
+* remove handlers ([7d89c65](https://github.com/bkings/wicc-java-mail/commit/7d89c65c6ab41204ea8bb08db0f5a86881a75599))
+
 ### 1.0.1 (2022-02-03)
 
 
