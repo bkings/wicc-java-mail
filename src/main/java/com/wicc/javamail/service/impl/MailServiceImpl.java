@@ -28,13 +28,18 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public String sendSimpleMessage(Mail mail) {
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom(email);
-        simpleMailMessage.setTo(mail.getTo());
-        simpleMailMessage.setSubject(mail.getSubject());
-        simpleMailMessage.setText(mail.getText());
-        javaMailSender.send(simpleMailMessage);
-        return "Success";
+        try {
+            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage.setFrom(email);
+            simpleMailMessage.setTo(mail.getTo());
+            simpleMailMessage.setSubject(mail.getSubject());
+            simpleMailMessage.setText(mail.getText());
+            javaMailSender.send(simpleMailMessage);
+            return "Success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Failure";
+        }
     }
 
     @Override
