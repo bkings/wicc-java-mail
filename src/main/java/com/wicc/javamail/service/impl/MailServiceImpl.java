@@ -23,8 +23,8 @@ public class MailServiceImpl implements MailService {
 
     private final JavaMailSender javaMailSender;
     private final SimpleMailMessage simpleTemplate;
-    @Value("${email.username}")
-    private String email;
+//    @Value("${email.username}")
+    private String email = "email@email.com";
 
     @Override
     public String sendSimpleMessage(Mail mail) {
