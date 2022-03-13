@@ -17,10 +17,10 @@ import java.util.Properties;
 @Configuration
 public class EmailConfig {
 
-    @Value("${email.username}")
-    private String email;
-    @Value("${email.password}")
-    private String password;
+//    @Value("${email.username}")
+    private String email = "myemail@email.com";
+//    @Value("${email.password}")
+    private String password = "myPassword";
 
     @Bean
     public JavaMailSender getJavaMailSender() {
