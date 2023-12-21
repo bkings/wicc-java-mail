@@ -46,5 +46,4 @@ public class EmailConfig {
         simpleMailMessage.setText("<b>This is an automated mail message.</b><br/> Please do not bother to reply. Thank You");
         return simpleMailMessage;
     }
-
 }
