@@ -1,6 +1,5 @@
 package com.wicc.javamail.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.SimpleMailMessage;
@@ -17,9 +16,9 @@ import java.util.Properties;
 @Configuration
 public class EmailConfig {
 
-//    @Value("${email.username}")
+    //    @Value("${email.username}")
     private String email = "myemail@email.com";
-//    @Value("${email.password}")
+    //    @Value("${email.password}")
     private String password = "myPassword";
 
     @Bean
